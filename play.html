@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planet Fun</title>
+
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script>
+        function showMenu() {
+            var menu = document.getElementsByClassName("mobile")[0]
+            if(menu.style.display === "block") {
+                menu.style.display = "none"
+            } else {
+                menu.style.display = "block"
+            }
+        }
+
+        window.onresize = () => {
+            if(document.body.clientWidth >= 600 ) {
+                var menu = document.getElementsByClassName("mobile")[0]
+                menu.style.display = "none"
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="saturn-planet.jpg" alt="logo">
+            </a>
+        </div>
+
+        <nav class="desktop">
+            <ul>
+                <li><a href="play.html">ZAGRAJ</a></li>
+                <li><a href="">INSTRUKCJA</a></li>
+            </ul>
+        </nav>
+
+        <div class="menu-button">
+            <a href="javascript:void(0);" onclick="showMenu()">
+                <i class="fa fa-bars fa-3x"></i>
+            </a>
+        </div>
+    </header>
+
+    <nav class="mobile">
+        <ul>
+            <li><a href="play.html">ZAGRAJ</a></li>
+            <li><a href="">INSTRUKCJA</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <canvas id="canvas"></canvas>
+        <script src="scripts/symulation.js"></script>
+    </main>
+</body>
+</html>
