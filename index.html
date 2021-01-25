@@ -10,11 +10,14 @@
 
     <script>
         function showMenu() {
+            var header = document.getElementById("header")
             var menu = document.getElementsByClassName("mobile")[0]
             if(menu.style.display === "block") {
                 menu.style.display = "none"
+                header.style.boxShadow = ""
             } else {
                 menu.style.display = "block"
+                header.style.boxShadow = "none"
             }
         }
 
@@ -29,7 +32,7 @@
 </head>
 
 <body>
-    <header>
+    <header id="header">
         <div class="logo">
             <a href="index.html">
                 <img src="saturn-planet.jpg" alt="logo">
