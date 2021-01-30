@@ -65,7 +65,6 @@ li a:hover {
 
 li:last-child {
     position: relative;
-    box-shadow: 0px 30px 20px 0px #000000;
 }
 
 header img {
@@ -100,6 +99,11 @@ canvas {
 
     nav.mobile ul {
         flex-direction: column;
+    }
+
+    li:last-child {
+        position: relative;
+        box-shadow: 0px 30px 20px 0px #000000;
     }
 }
 
