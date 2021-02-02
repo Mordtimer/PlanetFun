@@ -1,71 +1,192 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Planet Fun</title>
 
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
     <script>
-        function showMenu() {
-            var header = document.getElementById("header")
-            var menu = document.getElementsByClassName("mobile")[0]
-            if(menu.style.display === "block") {
-                menu.style.display = "none"
-                header.style.boxShadow = ""
-            } else {
-                menu.style.display = "block"
-                header.style.boxShadow = "none"
-            }
+      function showMenu() {
+        var header = document.getElementById("header");
+        var menu = document.getElementsByClassName("mobile")[0];
+        if (menu.style.display === "block") {
+          menu.style.display = "none";
+          header.style.boxShadow = "";
+        } else {
+          menu.style.display = "block";
+          header.style.boxShadow = "none";
         }
+      }
 
-        window.onresize = () => {
-            if(document.body.clientWidth >= 600 ) {
-                var menu = document.getElementsByClassName("mobile")[0]
-                menu.style.display = "none"
-            }
+      window.onresize = () => {
+        if (document.body.clientWidth >= 600) {
+          var menu = document.getElementsByClassName("mobile")[0];
+          menu.style.display = "none";
         }
+      };
     </script>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <header id="header">
-        <div class="logo">
-            <a href="index.html">
-                <img src="saturn-planet.jpg" alt="logo">
-            </a>
-        </div>
+      <div class="logo">
+        <a href="index.html">
+          <img src="saturn-planet.jpg" alt="logo" />
+        </a>
+      </div>
 
-        <nav class="desktop">
-            <ul>
-                <li><a href="play.html">ZAGRAJ</a></li>
-                <li><a href="">INSTRUKCJA</a></li>
-            </ul>
-        </nav>
+      <nav class="desktop">
+        <ul>
+          <li><a href="play.html">ZAGRAJ</a></li>
+          <li><a href="">INSTRUKCJA</a></li>
+        </ul>
+      </nav>
 
-        <div class="menu-button">
-            <a href="javascript:void(0);" onclick="showMenu()">
-                <i class="fa fa-bars fa-3x"></i>
-            </a>
-        </div>
+      <div class="menu-button">
+        <a href="javascript:void(0);" onclick="showMenu()">
+          <i class="fa fa-bars fa-3x"></i>
+        </a>
+      </div>
     </header>
 
     <nav class="mobile">
-        <ul>
-            <li><a href="play.html">ZAGRAJ</a></li>
-            <li><a href="">INSTRUKCJA</a></li>
-        </ul>
+      <ul>
+        <li><a href="play.html">ZAGRAJ</a></li>
+        <li><a href="">INSTRUKCJA</a></li>
+      </ul>
     </nav>
 
     <main>
-
+      <div id="planetary-systems-container">
+        <div id="add-planetary-system-card">
+          <img id="add-planetary-system-img" src="images/plus.svg" onclick="openForm()" />
+          <span>Add new planetary system</span>
+        </div>
+        <div id="add-planetary-system-form">
+          <form action="" method="post">
+            <h2>Create new planetary system</h2>
+            <label for="name"></label>
+            <input type="text" placeholder="Enter name" name="name" required />
+            <button type="submit" class="btn">Add</button>
+            <button class="btn cancel" onclick="closeForm()">Cancel</button>
+          </form>
+        </div>
+        <div class="card">
+          <div class="img-container">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <span class="planetary-system-name">name</span>
+        </div>
+        <div class="card">
+          <div class="img-container">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <span class="planetary-system-name">name</span>
+        </div>
+        <div class="card">
+          <div class="img-container">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <span class="planetary-system-name">name</span>
+        </div>
+        <div class="card">
+          <div class="img-container">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <span class="planetary-system-name">name</span>
+        </div>
+        <div class="card">
+          <div class="img-container">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <span class="planetary-system-name">name</span>
+        </div>
+        <div class="card">
+          <div class="img-container">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <span class="planetary-system-name">name</span>
+        </div>
+        <div class="card">
+          <div class="img-container">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <span class="planetary-system-name">name</span>
+        </div>
+        <div class="card">
+          <div class="img-container">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <span class="planetary-system-name">name</span>
+        </div>
+        <div class="card">
+          <div class="img-container">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <span class="planetary-system-name">name</span>
+        </div>
+        <div class="card">
+          <div class="img-container">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <span class="planetary-system-name">name</span>
+        </div>
+        <div class="card">
+          <div class="img-container">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <span class="planetary-system-name">name</span>
+        </div>
+        <div class="card">
+          <div class="img-container">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <span class="planetary-system-name">name</span>
+        </div>
+        <div class="card">
+          <div class="img-container">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <span class="planetary-system-name">name</span>
+        </div>
+        <div class="card">
+          <div class="img-container">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <span class="planetary-system-name">name</span>
+        </div>
+        <div class="card">
+          <div class="img-container">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <span class="planetary-system-name">name</span>
+        </div>
+      </div>
     </main>
 
-    <footer>
-
-    </footer>
-</body>
+    <footer></footer>
+    <script src="scripts/index.js"></script>
+  </body>
 </html>
