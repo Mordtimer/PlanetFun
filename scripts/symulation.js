@@ -70,24 +70,54 @@ class Planet {
         context.fill()
     }
 
-    Update(SUN, dt) {
-        //console.log(SUN.position.x + " y: " + SUN.position.y + " dt: " +
-        //    dt + "gravConst: " + this.gravConst)
-        //console.log("Position before:" + this.position.x + " velocity:" + this.velocity.x);
-        this.position.x = this.position.x + (this.velocity.x * dt); //parseFloat(this.position.x) + parseFloat(this.velocity.x * dt);
-        //console.log("Position after: " + this.position.x);
-        this.position.y += this.velocity.y * dt;
-        this.distance.x = SUN.position.x - this.position.x;
-        this.distance.y = SUN.position.y - this.position.y;
-        let distFromSun = Math.pow(this.distance.length(), 2)
-        //console.log("Distance from sun:" + distFromSun)
+    Update2(planets, dt) {
+            let myVector = new Vector2D(0, 0);
 
-        let tmp = this.distance.normalize()
-        //console.log("tmp.x: " + tmp.x + " tmp.y: " + tmp.y)
-        this.velocity.x = this.velocity.x + (this.gravConst * (SUN.mass / distFromSun) * tmp.x * dt);
-        this.velocity.y = this.velocity.y + (this.gravConst * (SUN.mass / distFromSun) * tmp.y * dt);
-        //console.log("Velocity after stuff:" + this.velocity.x)
-    }
+            planets.forEach(planet => {
+                if (planet != this) {
+                    //console.log(SUN.position.x + " y: " + SUN.position.y + " dt: " +
+                    //dt + "gravConst: " + this.gravConst)
+                    //console.log("Position before:" + this.position.x + " velocity:" + this.velocity.x);
+                    this.position.x = this.position.x + (this.velocity.x * dt); //parseFloat(this.position.x) + parseFloat(this.velocity.x * dt);
+                    //console.log("Position after: " + this.position.x);
+
+
+                    this.position.y += this.velocity.y * dt;
+                    let dist = new Vector2D(
+                        planet.position.x - this.position.x, planet.position.y - this.position.y)
+                    let tmpDist = this.position.distanceTo(planet.position)
+
+                    //let distFromOther = Math.pow(this.distance.length(), 2)
+                    //console.log("Distance from sun:" + distFromSun)
+
+                    let distNormalized = dist.normalize()
+                        //console.log("tmp.x: " + tmp.x + " tmp.y: " + tmp.y)
+                    this.velocity.x = this.velocity.x + (this.gravConst * (planet.mass / tmpDist) * distNormalized.x * dt);
+                    this.velocity.y = this.velocity.y + (this.gravConst * (planet.mass / tmpDist) * distNormalized.y * dt);
+                    //console.log("Velocity after stuff:" + this.velocity.x)
+                }
+            })
+
+        }
+        /*
+            Update(SUN, dt) {
+                //console.log(SUN.position.x + " y: " + SUN.position.y + " dt: " +
+                //    dt + "gravConst: " + this.gravConst)
+                //console.log("Position before:" + this.position.x + " velocity:" + this.velocity.x);
+                this.position.x = this.position.x + (this.velocity.x * dt); //parseFloat(this.position.x) + parseFloat(this.velocity.x * dt);
+                //console.log("Position after: " + this.position.x);
+                this.position.y += this.velocity.y * dt;
+                this.distance.x = SUN.position.x - this.position.x;
+                this.distance.y = SUN.position.y - this.position.y;
+                let distFromSun = Math.pow(this.distance.length(), 2)
+                    //console.log("Distance from sun:" + distFromSun)
+
+                let tmp = this.distance.normalize()
+                    //console.log("tmp.x: " + tmp.x + " tmp.y: " + tmp.y)
+                this.velocity.x = this.velocity.x + (this.gravConst * (SUN.mass / distFromSun) * tmp.x * dt);
+                this.velocity.y = this.velocity.y + (this.gravConst * (SUN.mass / distFromSun) * tmp.y * dt);
+                //console.log("Velocity after stuff:" + this.velocity.x)
+            }*/
 
     Setup(position, velocity, distance, mass, radius, color) {
         this.position = position;
@@ -130,7 +160,7 @@ function MouseMove(event) {
 
 function MouseClick(event) {
     clicked = selectedObject(event)
-    //console.log(clicked)
+        //console.log(clicked)
     if (clicked != null) {
         openMenu(clicked)
     } else {
@@ -143,10 +173,16 @@ function MouseWheel(event) {
     viewport.ZoomViewport(event)
     UpdateCanvas()
 }
-
+/*
 function UpdateModel(SUN, model) {
     drawableElements.forEach(e => {
         e.Update(SUN, model)
+    })
+}*/
+
+function UpdateModel2(list, model) {
+    drawableElements.forEach(e => {
+        e.Update2(list, model)
     })
 }
 
@@ -155,31 +191,36 @@ function UpdateCanvas() {
     var contextTransform = context.getTransform()
 
     context.clearRect(0, 0, canvas.width / contextTransform.a, canvas.height / contextTransform.d)
-
-    SUN.Draw(viewport);
     drawableElements.forEach(e => {
-        e.Draw(viewport)
-    })
+            e.Draw(viewport)
+        })
+        /*SUN.Draw(viewport);
+        drawableElements.forEach(e => {
+            e.Draw(viewport)
+        })*/
 }
 
 
 function mainLoop() {
-    UpdateModel(SUN, dtx);
+    UpdateModel2(drawableElements, dtx);
     UpdateCanvas();
     requestAnimationFrame(mainLoop);
 }
 
 const dtx = 0.16;
-const gravitConst = 1000;
+const gravitConst = 0.1;
 let viewport = new Viewport()
 let drawableElements = []
-var SUN = new Planet(new Vector2D(500, 500), new Vector2D(100, 100), new Vector2D(0, 0), 1000, 50, "#ffff00", dtx, gravitConst)
 
+drawableElements.push(new Planet(new Vector2D(800, 800), new Vector2D(0, 0), new Vector2D(0, 0), 20000, 100, "#ffff00", gravitConst))
 
-drawableElements.push(new Planet(new Vector2D(700, 50), new Vector2D(10, 50), new Vector2D(0, 0), 10, 13, "#ff0000", gravitConst))
-    //Tu się dzieją ciekawe rzeczy
-drawableElements.push(new Planet(new Vector2D(1000, 500), new Vector2D(10, 1), new Vector2D(0, 0), 10, 13, "#66ff99", gravitConst))
-drawableElements.push(new Planet(new Vector2D(1000, 1000), new Vector2D(-30, 30), new Vector2D(0, 0), 10, 13, "#0033cc", gravitConst))
+// male planetki 
+drawableElements.push(new Planet(new Vector2D(1500, 1500), new Vector2D(-20, 20), new Vector2D(0, 0), 0.1, 15, "#f0fff0", gravitConst))
+drawableElements.push(new Planet(new Vector2D(300, 300), new Vector2D(-20, 20), new Vector2D(0, 0), 0.3, 15, "#6600ff", gravitConst))
+    //drawableElements.push(new Planet(new Vector2D(700, 1000), new Vector2D(10, 50), new Vector2D(0, 0), 10, 13, "#ff0000", gravitConst))
+
+drawableElements.push(new Planet(new Vector2D(6000, 6500), new Vector2D(30, -20), new Vector2D(0, 0), 5, 40, "#66ff99", gravitConst))
+drawableElements.push(new Planet(new Vector2D(1000, 1000), new Vector2D(-20, 20), new Vector2D(0, 0), 10, 40, "#0033cc", gravitConst))
 
 canvas.addEventListener("click", MouseClick, true)
 canvas.addEventListener("mousemove", MouseMove)
