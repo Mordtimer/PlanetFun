@@ -7,6 +7,8 @@ document.getElementById("rDec").addEventListener("click", decreaseRadius)
 
 function selectedObject(event) {
     mousePos = viewport.GetMousePosition(event)
+    mousePos.x -= viewport.x;
+    mousePos.y -=viewport.y;
     for(el of drawableElements){
         if(isClicked(mousePos, el)){
             return el
@@ -16,7 +18,8 @@ function selectedObject(event) {
 }
 
 function isClicked(mousePos, el) {
-    if(mousePos.x >= el.x-el.r && mousePos.x <= el.x+el.r && mousePos.y >= el.y-el.r && mousePos.y <= el.y+el.r){
+    //console.log(mousePos, el)
+    if(mousePos.x >= el.position.x-el.radius && mousePos.x <= el.position.x+el.radius && mousePos.y >= el.position.y-el.radius && mousePos.y <= el.position.y+el.radius){
         return true
     }
     else {

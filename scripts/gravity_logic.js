@@ -57,4 +57,4 @@ class Planet {
 }
 
 let wesolaPlaneta = new Planet(new Vector2D(2, 3), new Vector2D(1, 1), new Vector2D(0, 0), 10, 1, 8.91);
-console.log(wesolaPlaneta);
+//console.log(wesolaPlaneta);
