@@ -18,6 +18,11 @@ $id = $_POST["planetary_system_id"];
 $sql = "DELETE FROM planetary_system WHERE id=$id";
 
 if (mysqli_query($conn, $sql)) {
-    echo "Deleted successfully id: " . $id;
+    $obj = new stdClass();
+    $obj->id = $id;
+    $obj->detail = "Deleted successfully";
+
+    $json = json_encode($obj);
+    echo $json;
 }
 mysqli_close($conn);
