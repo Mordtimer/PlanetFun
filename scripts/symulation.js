@@ -85,10 +85,12 @@ var viewport = new Viewport()
 var drawableElements = []
 
 drawableElements.push(new Object(100,100,20))
+drawableElements.push(new Object(100,200,30))
 
 canvas.addEventListener("mousemove", MouseMove)
 canvas.addEventListener("wheel", MouseWheel)
 canvas.addEventListener('contextmenu', event => event.preventDefault());
+canvas.addEventListener("click", MouseClick)
 
 function MouseMove(event) {
     switch(event.which) {
@@ -99,6 +101,17 @@ function MouseMove(event) {
         default:
             return
     }
+}
+
+function MouseClick(event) {
+    clicked = selectedObject(event)
+        if(clicked != null){
+            openMenu(clicked)
+        }
+        else{
+            closeMenu()
+        }
+        UpdateCanvas()
 }
 
 function MouseWheel(event) {
