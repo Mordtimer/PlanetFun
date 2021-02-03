@@ -7,8 +7,6 @@ document.getElementById("rDec").addEventListener("click", decreaseRadius)
 
 function selectedObject(event) {
     mousePos = viewport.GetMousePosition(event)
-    mousePos.x -= viewport.x;
-    mousePos.y -=viewport.y;
     for(el of drawableElements){
         if(isClicked(mousePos, el)){
             return el
@@ -19,7 +17,7 @@ function selectedObject(event) {
 
 function isClicked(mousePos, el) {
     //console.log(mousePos, el)
-    if(mousePos.x >= el.position.x-el.radius && mousePos.x <= el.position.x+el.radius && mousePos.y >= el.position.y-el.radius && mousePos.y <= el.position.y+el.radius){
+    if(mousePos.x >= el.position.x-el.radius-60 && mousePos.x <= el.position.x+el.radius+60 && mousePos.y >= el.position.y-el.radius-60 && mousePos.y <= el.position.y+el.radius+60){
         return true
     }
     else {
@@ -38,21 +36,25 @@ function closeMenu(){
 }
 
 function increaseMass(){
-    //todo0
+    selected.mass += 10
+    UpdateModel2(drawableElements, dtx);
+    UpdateCanvas();
 }
 
 function decreaseMass(){
-    //todo
+    selected.mass -= 10
+    UpdateModel2(drawableElements, dtx);
+    UpdateCanvas();
 }
 
 function increaseRadius(){
-    selected.r += 10
-    console.log(selected)
-    UpdateCanvas()
+    selected.radius += 10
+    UpdateModel2(drawableElements, dtx);
+    UpdateCanvas();
 }
 
 function decreaseRadius(){
-    selected.r -= 10
-    console.log(selected)
-    UpdateCanvas()
+    selected.radius -= 10
+    UpdateModel2(drawableElements, dtx);
+    UpdateCanvas();
 }
