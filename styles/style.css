@@ -119,19 +119,36 @@ canvas {
 
 #menu{
     position: absolute;
-    left: 25%;
+    left: 30%;
     bottom: 0px;
-    width: 50%;
-    height: 10vh;
+    width: 40%;
+    height: 13vh;
     display:none;
-    background-color: aqua;
+    background-color: #020f1a;
+    color: #c8dbe9;
+    border-radius: 25px;
+    border: black 3px solid;
 }
 
 #menu table{
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 50%;
 }
 
 #menu table td{
-    border: 1px red solid;
+    height: 50%;
+    width: 25%;
+    font-size: 35pt;
+    border-left-width: 30px;
+    padding-left: 20px;
+}
+
+td button{
+    width: 100%;
+    height: 70%;
+    border-radius: 20px;
+}
+
+td label{
+    font-size: 25pt;
 }
