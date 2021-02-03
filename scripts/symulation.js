@@ -616,6 +616,16 @@ function MouseMove(event) {
     }
 }
 
+function MouseClick(event) {
+    clicked = selectedObject(event)
+    if (clicked != null) {
+        openMenu(clicked)
+    } else {
+        closeMenu()
+    }
+    UpdateCanvas()
+}
+
 function MouseWheel(event) {
     viewport.ZoomViewport(event)
     UpdateCanvas()

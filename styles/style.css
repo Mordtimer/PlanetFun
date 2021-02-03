@@ -116,3 +116,22 @@ canvas {
         display: none;
     }
 }
+
+#menu{
+    position: absolute;
+    left: 25%;
+    bottom: 0px;
+    width: 50%;
+    height: 10vh;
+    display:none;
+    background-color: aqua;
+}
+
+#menu table{
+    width: 100%;
+    height: 100%;
+}
+
+#menu table td{
+    border: 1px red solid;
+}
