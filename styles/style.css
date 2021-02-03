@@ -18,13 +18,13 @@ header {
 
 main {
   width: 100%;
-  min-height: calc(100vh - 68px);
+  min-height: calc(100vh - 68px - 40px);
   background-color: #010b13;
 }
 
 footer {
   width: 100%;
-  height: 20vh;
+  height: 40px;
   background-color: #010203;
 }
 
@@ -49,7 +49,7 @@ nav ul {
   padding: 0 20px 0 0;
 }
 
-li a {
+nav li a {
   display: block;
   padding: 25px 30px;
 
@@ -58,12 +58,12 @@ li a {
   background-color: #021321;
 }
 
-li a:hover {
+nav li a:hover {
   color: #ff163d;
   background-color: #021829;
 }
 
-li:last-child {
+nav li:last-child {
   position: relative;
 }
 
@@ -81,11 +81,6 @@ header img {
   transform: translate(-50%, -50%);
 
   color: #acacac;
-}
-
-canvas {
-  width: 100%;
-  height: 100%;
 }
 
 @media only screen and (max-width: 599px) {
@@ -113,6 +108,9 @@ canvas {
   }
 
   nav.mobile {
+    display: none;
+  }
+  .mobile {
     display: none;
   }
 }

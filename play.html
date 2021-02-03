@@ -1,68 +1,197 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Planet Fun</title>
 
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/play.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
     <script>
-        function showMenu() {
-            var header = document.getElementById("header")
-            var menu = document.getElementsByClassName("mobile")[0]
-            if(menu.style.display === "block") {
-                menu.style.display = "none"
-                header.style.boxShadow = ""
-            } else {
-                menu.style.display = "block"
-                header.style.boxShadow = "none"
-            }
+      function showMenu() {
+        var header = document.getElementById("header");
+        var menu = document.getElementsByClassName("mobile")[0];
+        if (menu.style.display === "block") {
+          menu.style.display = "none";
+          header.style.boxShadow = "";
+        } else {
+          menu.style.display = "block";
+          header.style.boxShadow = "none";
         }
-
-        window.onresize = () => {
-            if(document.body.clientWidth >= 600 ) {
-                var menu = document.getElementsByClassName("mobile")[0]
-                menu.style.display = "none"
-            }
-        }
+      }
     </script>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <header id="header">
-        <div class="logo">
-            <a href="index.html">
-                <img src="saturn-planet.jpg" alt="logo">
-            </a>
-        </div>
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/saturn-planet.jpg" alt="logo" />
+        </a>
+      </div>
 
-        <nav class="desktop">
-            <ul>
-                <li><a href="play.html">ZAGRAJ</a></li>
-                <li><a href="">INSTRUKCJA</a></li>
-            </ul>
-        </nav>
+      <nav class="desktop">
+        <ul>
+          <li><a href="play.html">ZAGRAJ</a></li>
+          <li><a href="">INSTRUKCJA</a></li>
+        </ul>
+      </nav>
 
-        <div class="menu-button">
-            <a href="javascript:void(0);" onclick="showMenu()">
-                <i class="fa fa-bars fa-3x"></i>
-            </a>
-        </div>
+      <div class="menu-button">
+        <a href="javascript:void(0);" onclick="showMenu()">
+          <i class="fa fa-bars fa-3x"></i>
+        </a>
+      </div>
     </header>
 
     <nav class="mobile">
-        <ul>
-            <li><a href="play.html">ZAGRAJ</a></li>
-            <li><a href="">INSTRUKCJA</a></li>
-        </ul>
+      <ul>
+        <li><a href="play.html">ZAGRAJ</a></li>
+        <li><a href="">INSTRUKCJA</a></li>
+      </ul>
     </nav>
 
     <main>
-        <canvas id="canvas"></canvas>
-        <script src="scripts/symulation.js"></script>
+      <div class="dropdown">
+        <img id="dropimg" src="images/arrow.svg" />
+        <div id="dropdown-content-id" class="dropdown-content">
+          <div class="add-planetary-system-item">
+            <form action="" method="POST">
+              <input type="text" name="name" placeholder="Podaj nazwę układu" required />
+              <img src="images/plus.svg" />
+            </form>
+          </div>
+          <div class="dropdown-item">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <a>very very long long very very long long name</a>
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <div class="dropdown-item">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <a> name</a>
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <div class="dropdown-item">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <a> name</a>
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <div class="dropdown-item">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <a>very very long long very very long long name</a>
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <div class="dropdown-item">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <a> name</a>
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <div class="dropdown-item">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <a> name</a>
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <div class="dropdown-item">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <a>very very long long very very long long name</a>
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <div class="dropdown-item">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <a> name</a>
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <div class="dropdown-item">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <a> name</a>
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <div class="dropdown-item">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <a>very very long long very very long long name</a>
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <div class="dropdown-item">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <a> name</a>
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <div class="dropdown-item">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <a> name</a>
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <div class="dropdown-item">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <a>very very long long very very long long name</a>
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <div class="dropdown-item">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <a> name</a>
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <div class="dropdown-item">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <a> name</a>
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <div class="dropdown-item">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <a>very very long long very very long long name</a>
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <div class="dropdown-item">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <a> name</a>
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <div class="dropdown-item">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <a> name</a>
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <div class="dropdown-item">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <a>very very long long very very long long name</a>
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <div class="dropdown-item">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <a> name</a>
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <div class="dropdown-item">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <a> name</a>
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <div class="dropdown-item">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <a>very very long long very very long long name</a>
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <div class="dropdown-item">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <a> name</a>
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+          <div class="dropdown-item">
+            <img class="planetary-system-img" src="images/solar-system.svg" />
+            <a> name</a>
+            <img class="delete-planetary-system-img" src="images/delete.svg" />
+          </div>
+        </div>
+      </div>
+      <canvas id="canvas"></canvas>
     </main>
-</body>
+    <footer></footer>
+
+    <script src="scripts/play.js"></script>
+  </body>
 </html>
