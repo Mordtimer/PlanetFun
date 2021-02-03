@@ -216,11 +216,11 @@ drawableElements.push(new Planet(new Vector2D(800, 800), new Vector2D(0, 0), new
 
 // male planetki 
 drawableElements.push(new Planet(new Vector2D(1500, 1500), new Vector2D(-20, 20), new Vector2D(0, 0), 0.1, 15, "#f0fff0", gravitConst))
-drawableElements.push(new Planet(new Vector2D(300, 300), new Vector2D(-20, 20), new Vector2D(0, 0), 0.3, 15, "#6600ff", gravitConst))
+drawableElements.push(new Planet(new Vector2D(200, 200), new Vector2D(-20, 20), new Vector2D(0, 0), 0.3, 15, "#6600ff", gravitConst))
     //drawableElements.push(new Planet(new Vector2D(700, 1000), new Vector2D(10, 50), new Vector2D(0, 0), 10, 13, "#ff0000", gravitConst))
 
-drawableElements.push(new Planet(new Vector2D(6000, 6500), new Vector2D(30, -20), new Vector2D(0, 0), 5, 40, "#66ff99", gravitConst))
-drawableElements.push(new Planet(new Vector2D(1000, 1000), new Vector2D(-20, 20), new Vector2D(0, 0), 10, 40, "#0033cc", gravitConst))
+drawableElements.push(new Planet(new Vector2D(5000, 5500), new Vector2D(20, -20), new Vector2D(0, 0), 5, 40, "#66ff99", gravitConst))
+drawableElements.push(new Planet(new Vector2D(1000, 1300), new Vector2D(-40, 0), new Vector2D(0, 0), 1500, 40, "#0033cc", gravitConst))
 
 canvas.addEventListener("click", MouseClick, true)
 canvas.addEventListener("mousemove", MouseMove)
