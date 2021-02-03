@@ -162,6 +162,7 @@ function MouseClick(event) {
     clicked = selectedObject(event)
         //console.log(clicked)
     if (clicked != null) {
+        closeMenu()
         openMenu(clicked)
     } else {
         closeMenu()
