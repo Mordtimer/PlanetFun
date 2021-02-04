@@ -89,6 +89,7 @@ class Planet {
             });
             let len = drawableElements.length;
             for (let index = 0; index < len; index++) {
+                console.log(this)
                 if (drawableElements[index].position.distanceTo(this.position) < (drawableElements[index].radius + this.radius) &&
                     drawableElements.indexOf(this) != index
 
@@ -195,11 +196,12 @@ function MouseUp(event) {
                 var pos = viewport.GetMousePosition(event)
                 var velocity = new Vector2D((clickPosition.x - pos.x)/200, (clickPosition.y - pos.y)/200)
                 drawableElements.push(new Planet(
+                    0,
                     clickPosition, 
                     velocity,
                     new Vector2D(0, 0),
-                    planetMass.value,
-                    planetRadius.value,
+                    Number(planetMass.value),
+                    Number(planetRadius.value),
                     planetColor.value,
                     gravitConst)
                 )
