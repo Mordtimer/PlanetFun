@@ -36,27 +36,13 @@ window.addEventListener("load", () => {
       }
       if (data.length > 0) {
         //Adding planets to canvas
-        var currentPlanetarySystemId = data[data.length - 1].id;
-
-        let formData = new FormData();
-        formData.append("planetary_system_id", currentPlanetarySystemId.toString());
-
-        fetch("server/getPlanets.php", {
-          method: "POST",
-          body: formData,
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            for (let planet in data) {
-              // TODO init planets
-            }
-          });
+        var currentPlanetarySystemId = Number(data[data.length - 1].id);
       } else {
         //Creating default planetary system if there are no other planetary systems
         let formData = new FormData();
         formData.append("name", "default");
         postPlanetarySystem(formData).then((data) => {
-          currentPlanetarySystemId = data.id;
+          currentPlanetarySystemId = Number(data.id);
           addNewPlanetarySystemHTML(data.id, data.name);
         });
       }
@@ -68,15 +54,44 @@ function selectCurrentPlanetarySystem(id) {
   let previousId = currentPlanetarySystemId;
   if (previousId > 0) {
     let previousItem = Array.from(planetarySystemItems).find(
-      (element) => element.dataset.id === previousId
+      (element) => Number(element.dataset.id) === previousId
     );
     previousItem.classList.toggle("selected-planet-system");
   }
 
-  let currentItem = Array.from(planetarySystemItems).find((element) => element.dataset.id === id);
+  let currentItem = Array.from(planetarySystemItems).find(
+    (element) => Number(element.dataset.id) === id
+  );
+
   currentItem.classList.toggle("selected-planet-system");
 
   currentPlanetarySystemId = id;
+
+  let formData = new FormData();
+  formData.append("planetary_system_id", currentPlanetarySystemId.toString());
+
+  fetch("server/getPlanets.php", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      drawableElements = [];
+      for (let planet of data) {
+        drawableElements.push(
+          new Planet(
+            planet.id,
+            new Vector2D(planet.position_x, planet.position_y),
+            new Vector2D(planet.velocity_x, planet.velocity_y),
+            new Vector2D(0, 0),
+            planet.mass,
+            planet.radius,
+            planet.color,
+            planet.gravity_const
+          )
+        );
+      }
+    });
 }
 
 // Add new planets system form
@@ -121,8 +136,8 @@ dropdownContent.addEventListener("click", (e) => {
       .then((response) => response.json())
       .then(() => div.remove());
   } else if (element.classList.contains("dropdown-item")) {
-    selectCurrentPlanetarySystem(element.dataset.id);
+    selectCurrentPlanetarySystem(Number(element.dataset.id));
   } else if (element.classList.contains("planetary-system-img") || element.tagName === "A") {
-    selectCurrentPlanetarySystem(element.parentNode.dataset.id);
+    selectCurrentPlanetarySystem(Number(element.parentNode.dataset.id));
   }
 });
