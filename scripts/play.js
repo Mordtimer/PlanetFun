@@ -30,10 +30,12 @@ window.addEventListener("load", () => {
   fetch("server/getPlanetarySystems.php")
     .then((response) => response.json())
     .then((data) => {
+      //Adding planetary systems to dropdown menu
       for (let planetarySystem of data) {
         addNewPlanetarySystemHTML(planetarySystem.id, planetarySystem.name);
       }
       if (data.length > 0) {
+        //Adding planets to canvas
         var currentPlanetarySystemId = data[data.length - 1].id;
 
         let formData = new FormData();
@@ -50,6 +52,7 @@ window.addEventListener("load", () => {
             }
           });
       } else {
+        //Creating default planetary system if there are no other planetary systems
         let formData = new FormData();
         formData.append("name", "default");
         postPlanetarySystem(formData).then((data) => {
