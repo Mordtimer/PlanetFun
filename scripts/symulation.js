@@ -174,6 +174,25 @@ function MouseWheel(event) {
     viewport.ZoomViewport(event)
     UpdateCanvas()
 }
+
+var previousTouch;
+canvas.addEventListener("touchmove", (e) => {
+    const touch = e.touches[0];
+    var contextTransform = canvas.getContext("2d").getTransform()
+    if (previousTouch) {
+        e.movementX = touch.pageX - previousTouch.pageX;
+        e.movementY = touch.pageY - previousTouch.pageY;
+        viewport.x += e.movementX / contextTransform.a
+        viewport.y += e.movementY / contextTransform.d
+    };
+
+    previousTouch = touch;
+});
+
+canvas.addEventListener("touchend", (e) => {
+    previousTouch = null;
+});
+
 /*
 function UpdateModel(SUN, model) {
     drawableElements.forEach(e => {
