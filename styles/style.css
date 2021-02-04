@@ -84,33 +84,115 @@ header img {
 }
 
 @media only screen and (max-width: 599px) {
-  nav.desktop {
-    display: none;
-  }
+    nav.desktop {
+        display: none;
+    }
 
-  nav.mobile {
-    display: none;
-  }
+    nav.mobile {
+        display: none;
+    }
 
-  nav.mobile ul {
-    flex-direction: column;
-  }
+    nav.mobile ul {
+        flex-direction: column;
+    }
 
-  li:last-child {
-    position: relative;
-    box-shadow: 0px 30px 20px 0px #000000;
-  }
+    li:last-child {
+        position: relative;
+        box-shadow: 0px 30px 20px 0px #000000;
+    }
+
+    #menu{
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        width: calc(100% - 6px);
+        height: 10vh;
+    }
+
+    #menu table{
+        width: 90%;
+        height: 50%;
+    }
+
+    #menu table td{
+        height: 50%;
+        width: 25%;
+        font-size: 125%;
+        padding-left: 15px;
+    }
+    
+    td button{
+        width: 130%;
+        height: 100%;
+        border-radius: 40%;
+    }
 }
 
 @media only screen and (min-width: 600px) {
-  .menu-button {
-    display: none;
-  }
+    .menu-button {
+        display: none;
+    }
 
-  nav.mobile {
-    display: none;
-  }
-  .mobile {
-    display: none;
-  }
+    nav.mobile {
+        display: none;
+    }
+
+    #menu{
+        position: absolute;
+        left: 30%;
+        bottom: 0px;
+        width: 40%;
+        height: 13vh;
+    }
+
+    #menu table{
+        width: 90%;
+        height: 50%;
+    }
+    
+    #menu table td{
+        height: 50%;
+        width: 25%;
+        font-size: 285%;
+        border-left-width: 30px;
+        padding-left: 20px;
+    }
+    
+    td button{
+        width: 100%;
+        height: 70%;
+        border-radius: 40%;
+    }
 }
+
+@media only screen and (min-width: 600px) and (max-height: 500px){
+    #menu table td{
+        font-size: 110%;
+    }
+
+    #menu{
+        left: 15%;
+        bottom: 0px;
+        width: 70%;
+        height: 15vh;
+    }
+
+    td button{
+        width: 100%;
+        height: 100%;
+        border-radius: 40%;
+    }
+}
+
+#menu{
+    display:none;
+    background-color: #020f1a;
+    color: #c8dbe9;
+    border-radius: 25px;
+    border: black 3px solid;
+}
+
+#menu input{
+    height: 40%;
+}
+
