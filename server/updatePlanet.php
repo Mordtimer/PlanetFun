@@ -13,33 +13,34 @@ if (!$conn) {
 }
 
 $id = $_POST["planet_id"];
-$mass = $_POST["mass"];
-$radius = $_POST["radius"];
-$color = $_POST["color"];
 
 $obj = new stdClass();
 $obj->id = $id;
 
 $sql = "UPDATE planet SET ";
 
-if (!isset($mass) && !empty($mass)) {
-    $sql .= "mass=$mass ";
-    $obj->mass = $mass;
-}
-if (!isset($radius) && !empty($radius)) {
-    $sql .= "radius=$radius ";
-    $obj->radius = $radius;
-}
-if (!isset($color) && !empty($color)) {
-    $sql .= "color=$color ";
-    $obj->color = $color;
-}
+$mass = $_POST["mass"];
+
+$sql .= "mass=$mass,";
+$obj->mass = $mass;
+
+$radius = $_POST["radius"];
+
+$sql .= "radius=$radius,";
+$obj->radius = $radius;
+
+$color = $_POST["color"];
+
+$sql .= "color='$color' ";
+$obj->color = $color;
 
 $sql .= "WHERE id=$id";
 
 if (mysqli_query($conn, $sql)) {
     $json = json_encode($obj);
     echo $json;
+} else {
+    echo mysqli_error($conn);
 }
 
 mysqli_close($conn);
