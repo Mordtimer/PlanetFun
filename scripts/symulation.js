@@ -178,9 +178,11 @@ function MouseDown(event) {
                 openMenu(clicked)
             } else {
                 closeMenu()
-                var pos = viewport.GetMousePosition(event)
-                clickPosition = new Vector2D(pos.x, pos.y)
-                mousePosition = pos
+                if(addPlanet.classList.contains("active")){
+                    var pos = viewport.GetMousePosition(event)
+                    clickPosition = new Vector2D(pos.x, pos.y)
+                    mousePosition = pos
+                }
             }
         break
     }

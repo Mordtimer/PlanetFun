@@ -482,6 +482,7 @@ header img {
 .planet-params-close-button {
   width: 100%;
   height: 100%;
+  transition: transform 0.2s linear;
 }
 
 .planet-params-content {
@@ -508,4 +509,22 @@ label, input {
   100% {
     transform: scaleY(1);
   }
+}
+
+.add-planet {
+  width: 55px;
+  height: 55px;
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  filter: brightness(0.3);
+}
+
+.add-planet-button {
+  width: 100%;
+  height: 100%;
+}
+
+.active {
+  filter: brightness(1);
 }
