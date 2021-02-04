@@ -19,8 +19,19 @@ $sql = "SELECT * FROM planet WHERE planetary_system_id=$id";
 $result = mysqli_query($conn, $sql);
 
 $rows = [];
-while ($r = mysqli_fetch_assoc($result)) {
-    $rows[] = $r;
+while ($row = mysqli_fetch_assoc($result)) {
+    $obj = new stdClass();
+    $obj->id = (int)$row["id"];
+    $obj->planetary_system_id = (int)$row["planetary_system_id"];
+    $obj->position_x = (float)$row["position_x"];
+    $obj->position_y = (float)$row["position_y"];
+    $obj->velocity_x = (float)$row["velocity_x"];
+    $obj->velocity_y = (float)$row["velocity_y"];
+    $obj->mass = (float)$row["mass"];
+    $obj->radius = (float)$row["radius"];
+    $obj->color = $row["color"];
+    $obj->gravity_const = (float)$row["gravity_const"];
+    $rows[] = $obj;
 }
 echo json_encode($rows);
 
