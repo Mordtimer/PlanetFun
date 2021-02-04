@@ -83,11 +83,30 @@
         </div>
       </div>
 
+      <div class="planet-params">
+        <div id="planetParamsContent" class="planet-params-content">
+          <label class="planet-params-label">Masa</label>
+          <input type="range" id="planetMass" min="1" max="1000">
+          <label class="planet-params-label">Promień</label>
+          <input type="range" id="planetRadius" min="10" max="100">
+          <label class="planet-params-label">Kolor</label>
+          <input type="color" id="planetColor" value="#ffffff">
+        </div>
+        <div class="planet-params-header">
+            <div id="planetParamsClose" class="planet-params-close">
+              <img src="images/close-x.png" class="planet-params-close-button">
+            </div>
+            <div class="planet-params-header-text">
+              Parametry planety
+            </div>
+        </div>
+      </div>
     </main>
     
     <script src="scripts/menu.js"></script>
     <script src="scripts/vector2d.js"></script>
     <script src="scripts/play.js"></script>
     <script src="scripts/symulation.js"></script>
+    <script src="scripts/planet-params.js"></script>
   </body>
 </html>

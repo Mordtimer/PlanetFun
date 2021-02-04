@@ -149,25 +149,55 @@ window.addEventListener("resize", () => {
 
 function MouseMove(event) {
     switch (event.which) {
-        case 1:
+        case 3:
             viewport.DragViewport(event)
             UpdateCanvas()
+            break
+        case 1:
+            mousePosition = viewport.GetMousePosition(event)
             break
         default:
             return
     }
 }
 
-function MouseClick(event) {
-    clicked = selectedObject(event)
-        //console.log(clicked)
-    if (clicked != null) {
-        closeMenu()
-        openMenu(clicked)
-    } else {
-        closeMenu()
+function MouseDown(event) {
+    switch (event.which) {
+        case 1:
+            clicked = selectedObject(event)
+            if (clicked != null) {
+                closeMenu()
+                openMenu(clicked)
+            } else {
+                closeMenu()
+                var pos = viewport.GetMousePosition(event)
+                clickPosition = new Vector2D(pos.x, pos.y)
+                mousePosition = pos
+            }
+        break
     }
-    UpdateCanvas()
+}
+
+function MouseUp(event) {
+    switch (event.which) {
+        case 1:
+            if(clickPosition != null) {
+                var pos = viewport.GetMousePosition(event)
+                var velocity = new Vector2D((clickPosition.x - pos.x)/200, (clickPosition.y - pos.y)/200)
+                drawableElements.push(new Planet(
+                    clickPosition, 
+                    velocity,
+                    new Vector2D(0, 0),
+                    planetMass.value,
+                    planetRadius.value,
+                    planetColor.value,
+                    gravitConst)
+                )
+                clickPosition = null
+                mousePosition = null
+            }
+        break
+    }
 }
 
 function MouseWheel(event) {
@@ -195,6 +225,22 @@ function UpdateCanvas() {
     drawableElements.forEach(e => {
             e.Draw(viewport)
         })
+
+    if(clickPosition!= null) {
+        context.lineWidth = 1/viewport.zoom
+
+        context.strokeStyle = "#ff0000"
+        context.beginPath();
+        context.moveTo(clickPosition.x + viewport.x, clickPosition.y + viewport.y)
+        context.lineTo(mousePosition.x + viewport.x, mousePosition.y +  viewport.y)
+        context.stroke()
+
+        context.strokeStyle = "#ffffff"
+        context.beginPath();
+        context.moveTo(clickPosition.x + viewport.x, clickPosition.y + viewport.y)
+        context.lineTo(2*clickPosition.x-mousePosition.x + viewport.x, 2*clickPosition.y-mousePosition.y + viewport.y)
+        context.stroke()
+    }
         /*SUN.Draw(viewport);
         drawableElements.forEach(e => {
             e.Draw(viewport)
@@ -212,6 +258,8 @@ const dtx = 0.16;
 const gravitConst = 0.1;
 let viewport = new Viewport()
 let drawableElements = []
+let clickPosition = null
+let mousePosition = null
 
 drawableElements.push(new Planet(new Vector2D(800, 800), new Vector2D(0, 0), new Vector2D(0, 0), 20000, 100, "#ffff00", gravitConst))
 
@@ -223,7 +271,8 @@ drawableElements.push(new Planet(new Vector2D(200, 200), new Vector2D(-20, 20), 
 drawableElements.push(new Planet(new Vector2D(5000, 5500), new Vector2D(20, -20), new Vector2D(0, 0), 5, 40, "#66ff99", gravitConst))
 drawableElements.push(new Planet(new Vector2D(1000, 1300), new Vector2D(-40, 0), new Vector2D(0, 0), 1500, 40, "#0033cc", gravitConst))
 
-canvas.addEventListener("click", MouseClick, true)
+canvas.addEventListener("mouseup", MouseUp, true)
+canvas.addEventListener("mousedown", MouseDown, true)
 canvas.addEventListener("mousemove", MouseMove)
 canvas.addEventListener("wheel", MouseWheel)
 canvas.addEventListener('contextmenu', event => event.preventDefault());

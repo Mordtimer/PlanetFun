@@ -343,3 +343,61 @@ header img {
 #menu input{
   height: 40%;
 }
+
+.planet-params {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+}
+
+.planet-params-header {
+  display: flex;
+  flex-direction: row;
+
+  padding: 10px 10px;
+
+  background-color: #444444;
+}
+
+.planet-params-close{
+  width: 20px;
+  height: 20px;
+
+  padding-right: 10px;
+}
+
+.planet-params-header-text {
+
+}
+
+.planet-params-close-button {
+  width: 100%;
+  height: 100%;
+}
+
+.planet-params-content {
+  display: none;
+  padding: 10px 10px;
+  background-color: #acacac;
+  transform-origin: bottom center;
+  animation: growUp 0.7s ease-in-out;
+}
+
+.show {
+  display: block;
+}
+
+label, input {
+  margin: 10px 0;
+  display: block;
+}
+
+@keyframes growUp {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
