@@ -92,7 +92,6 @@ main {
   flex-flow: row nowrap;
   background-color: #afaeae17;
   text-decoration: none;
-
   cursor: pointer;
 }
 
@@ -132,6 +131,11 @@ main {
 
 .show-dropdown {
   display: flex;
+}
+
+.selected-planet-system {
+  background-image: url(../images/milky-way.jpg);
+  filter: brightness(1.6);
 }
 
 #canvas {
