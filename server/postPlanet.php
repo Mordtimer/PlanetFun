@@ -23,10 +23,10 @@ $color = $_POST["color"];
 $gravityConst = $_POST["gravity_const"];
 
 $obj = new stdClass();
-$obj->positionX = $positionX;
-$obj->positionY = $positionY;
-$obj->velocityX = $velocityX;
-$obj->velocityY = $velocityY;
+$obj->position_x = $positionX;
+$obj->position_y = $positionY;
+$obj->velocity_x = $velocityX;
+$obj->velocity_y = $velocityY;
 $obj->mass = $mass;
 $obj->radius = $radius;
 $obj->color = $color;

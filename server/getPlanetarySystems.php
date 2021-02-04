@@ -18,8 +18,11 @@ $sql = "SELECT * FROM planetary_system";
 $result = mysqli_query($conn, $sql);
 
 $rows = [];
-while ($r = mysqli_fetch_assoc($result)) {
-    $rows[] = $r;
+while ($row = mysqli_fetch_assoc($result)) {
+    $obj = new stdClass();
+    $obj->id = (int)$row["id"];
+    $obj->name = $row["name"];
+    $rows[] = $obj;
 }
 echo json_encode($rows);
 

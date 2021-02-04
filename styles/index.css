@@ -1,88 +1,78 @@
 body {
-  margin: 0;
+    margin: 0;
 }
 
 header {
-  width: 100%;
-  height: 68px;
-
-  box-sizing: border-box;
-
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  z-index: 999;
-
-  background-color: #021321;
-  box-shadow: 0px 0px 20px 20px #000000;
+    width: 100%;
+    height: 68px;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    z-index: 999;
+    background-color: #021321;
+    box-shadow: 0px 0px 20px 20px #000000;
 }
 
 main {
-  position: relative;
-  width: 100%;
-  height: calc(100vh - 68px);
-  background-color: #010b13;
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 68px);
+    background-color: #010b13;
 }
 
 footer {
-  width: 100%;
-  height: 40px;
-  background-color: #010203;
+    width: 100%;
+    height: 40px;
+    background-color: #010203;
 }
 
 nav ul {
-  margin: 0;
-  padding: 0;
-
-  display: flex;
-
-  list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style-type: none;
 }
 
 .logo {
-  height: 100%;
-
-  padding: 0 0 0 20px;
+    height: 100%;
+    padding: 0 0 0 20px;
 }
 
 .menu-button {
-  height: 100%;
-
-  padding: 0 20px 0 0;
+    height: 100%;
+    padding: 0 20px 0 0;
 }
 
 nav li a {
-  display: block;
-  padding: 25px 30px;
-
-  text-decoration: none;
-  color: #acacac;
-  background-color: #021321;
+    display: block;
+    padding: 25px 30px;
+    text-decoration: none;
+    color: #acacac;
+    background-color: #021321;
 }
 
 nav li a:hover {
-  color: #ff163d;
-  background-color: #021829;
+    color: #ff163d;
+    background-color: #021829;
 }
 
 nav li:last-child {
-  position: relative;
+    position: relative;
 }
 
 header img {
-  height: 100%;
-
-  padding: 10px 0;
-  box-sizing: border-box;
+    height: 100%;
+    padding: 10px 0;
+    box-sizing: border-box;
 }
 
 .menu-button i {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  color: #acacac;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #acacac;
 }
 
 .absolute {
@@ -94,7 +84,7 @@ img.rocket {
     z-index: 1;
     left: 40%;
     top: 50%;
-    transform: translate(-50%, -50%) ;
+    transform: translate(-50%, -50%);
 }
 
 img.venus {
@@ -125,7 +115,7 @@ img.venus {
     text-align: center;
     top: 25%;
     left: 50%;
-    color:#acacac;
+    color: #acacac;
     font-family: 'Alegreya SC', serif;
     transform: translate(-50%, -50%);
     font-size: 3em;
@@ -137,76 +127,98 @@ img.venus {
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-	background: linear-gradient(90deg, #ffbf00 0%, #ff00bf 100%);
-	border-radius: 5px;
-	cursor:pointer;
-	color:#000;
-	font-size: 35px;
-	padding:15px 30px;
-    text-decoration:none;
+    background: linear-gradient(90deg, #ffbf00 0%, #ff00bf 100%);
+    border-radius: 5px;
+    cursor: pointer;
+    color: #000;
+    font-size: 35px;
+    padding: 15px 30px;
+    text-decoration: none;
     opacity: .8;
     transition: opacity 0.2s linear;
 }
+
 .playButton:hover {
     opacity: 1;
 }
 
+
+/* for Galaxy Fold mainly */
+
 @media only screen and (max-width: 860px) {
-  .text {
-    font-size: 2em;
-  }
+    .text {
+        font-size: 2em;
+    }
 }
 
-@media only screen and (max-width: 599px) {
+@media only screen and (max-height: 500px) {
+    .playButton {
+        top: 80%;
+    }
+}
+
+@media only screen and (max-width: 549px) {
     nav.desktop {
         display: none;
     }
-
     nav.mobile {
         display: none;
     }
-
     nav.mobile ul {
         flex-direction: column;
     }
-
     li:last-child {
         position: relative;
         box-shadow: 0px 30px 20px 0px #000000;
     }
-
     .left {
-      width: 100%;
+        width: 100%;
     }
-
     .right {
         left: 0;
         width: 100%;
     }
-
     .playButton {
-      top: 85%;
+        top: 85%;
     }
-
     .text {
-      top: 15%;
-      font-size: 2em;
+        top: 15%;
     }
-
     img.venus {
-      width: 70%;
+        width: 60%;
     }
 }
 
-@media only screen and (min-width: 600px) {
-  .menu-button {
-    display: none;
-  }
+@media only screen and (min-width: 550px) {
+    .menu-button {
+        display: none;
+    }
+    nav.mobile {
+        display: none;
+    }
+    .mobile {
+        display: none;
+    }
+}
 
-  nav.mobile {
-    display: none;
-  }
-  .mobile {
-    display: none;
-  }
+@media only screen and (max-width: 300px) {
+    .menu-button {
+        padding: 0 5px 0 0;
+    }
+    .logo {
+        padding: 0 0 0 5px;
+    }
+    .text {
+        font-size: 1.5em;
+    }
+}
+
+@media (orientation: landscape) and (max-height: 376px) {
+    .text {
+        font-size: 1.4em;
+    }
+    .venus {
+        height: 60vh;
+        width: 50vw;
+    }
 }

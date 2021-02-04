@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 04 Lut 2021, 00:08
+-- Czas generowania: 04 Lut 2021, 20:37
 -- Wersja serwera: 10.4.17-MariaDB
 -- Wersja PHP: 8.0.1
 
@@ -40,6 +40,15 @@ CREATE TABLE `planet` (
   `gravity_const` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Zrzut danych tabeli `planet`
+--
+
+INSERT INTO `planet` (`id`, `planetary_system_id`, `position_x`, `position_y`, `velocity_x`, `velocity_y`, `mass`, `radius`, `color`, `gravity_const`) VALUES
+(1, 33, 800, 800, 0, 0, 20000, 100, '#ffff00', 0.1),
+(2, 33, 1500, 1500, -20, 20, 0.1, 15, '#f0fff0', 0.1),
+(3, 33, 200, 200, -20, 20, 0.3, 15, '#6600ff', 0.1);
+
 -- --------------------------------------------------------
 
 --
@@ -52,6 +61,14 @@ CREATE TABLE `planetary_system` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Zrzut danych tabeli `planetary_system`
+--
+
+INSERT INTO `planetary_system` (`id`, `name`) VALUES
+(33, 'default'),
+(35, 'uklad');
+
+--
 -- Indeksy dla zrzutów tabel
 --
 
@@ -60,7 +77,7 @@ CREATE TABLE `planetary_system` (
 --
 ALTER TABLE `planet`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `planetary_system_id` (`planetary_system_id`);
+  ADD KEY `planetary_system_id` (`planetary_system_id`) USING BTREE;
 
 --
 -- Indeksy dla tabeli `planetary_system`
@@ -76,13 +93,13 @@ ALTER TABLE `planetary_system`
 -- AUTO_INCREMENT dla tabeli `planet`
 --
 ALTER TABLE `planet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT dla tabeli `planetary_system`
 --
 ALTER TABLE `planetary_system`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- Ograniczenia dla zrzutów tabel
