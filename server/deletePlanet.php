@@ -19,10 +19,12 @@ $sql = "DELETE FROM planet WHERE id=$id";
 
 if (mysqli_query($conn, $sql)) {
     $obj = new stdClass();
-    $obj->id = $id;
+    $obj->id = (int)$id;
     $obj->detail = "Deleted successfully";
 
     $json = json_encode($obj);
     echo $json;
+} else {
+    echo mysqli_error($conn);
 }
 mysqli_close($conn);

@@ -23,21 +23,22 @@ $color = $_POST["color"];
 $gravityConst = $_POST["gravity_const"];
 
 $obj = new stdClass();
-$obj->position_x = $positionX;
-$obj->position_y = $positionY;
-$obj->velocity_x = $velocityX;
-$obj->velocity_y = $velocityY;
-$obj->mass = $mass;
-$obj->radius = $radius;
+$obj->planetarySystemId = (int)$planetarySystemId;
+$obj->position_x = (float)$positionX;
+$obj->position_y = (float)$positionY;
+$obj->velocity_x = (float)$velocityX;
+$obj->velocity_y = (float)$velocityY;
+$obj->mass = (float)$mass;
+$obj->radius = (float)$radius;
 $obj->color = $color;
-$obj->gravity_const = $gravity_const;
+$obj->gravity_const = (float)$gravityConst;
 
 $sql = "INSERT INTO planet (planetary_system_id, position_x, position_y, velocity_x, velocity_y, mass, radius, color, gravity_const) 
         VALUES ('$planetarySystemId', '$positionX', '$positionY', '$velocityX', '$velocityY', '$mass', '$radius', '$color', '$gravityConst')";
 
 if (mysqli_query($conn, $sql)) {
     $lastId = mysqli_insert_id($conn);
-    $obj->id = $lastId;
+    $obj->id = (int)$lastId;
 
     $json = json_encode($obj);
     echo $json;

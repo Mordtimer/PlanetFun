@@ -66,6 +66,7 @@ function selectCurrentPlanetarySystem(id) {
   currentItem.classList.toggle("selected-planet-system");
 
   currentPlanetarySystemId = id;
+  canvas.dataset.id = currentPlanetarySystemId;
 
   let formData = new FormData();
   formData.append("planetary_system_id", currentPlanetarySystemId.toString());
