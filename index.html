@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Planet Fun</title>
 
-    <link rel="stylesheet" href="styles/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@1,800&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
@@ -22,7 +28,7 @@
       <nav class="desktop">
         <ul>
           <li><a href="play.html">ZAGRAJ</a></li>
-          <li><a href="">INSTRUKCJA</a></li>
+          <li><a href="Documentation_Planet_Fun.pdf">INSTRUKCJA</a></li>
         </ul>
       </nav>
 
@@ -36,58 +42,60 @@
     <nav class="mobile">
       <ul>
         <li><a href="play.html">ZAGRAJ</a></li>
-        <li><a href="">INSTRUKCJA</a></li>
+        <li><a href="Documentation_Planet_Fun.pdf">INSTRUKCJA</a></li>
       </ul>
     </nav>
 
     <main id="main">
-        <div class="left">
-            <img src="images/rocket.png" id="rocket" class="rocket absolute">
-            <img src="images/venus.png" id="venus" class="venus absolute">
-        </div>
-        <div class="right">
-            <div class="text">
-                Symulacja oddziaływania grawitacyjnego
-            </div>
-            <a href="play.html" class="playButton">ZAGRAJ!</a>
-        </div>
+      <div class="left">
+        <img src="images/rocket.png" id="rocket" class="rocket absolute" />
+        <img src="images/venus.png" id="venus" class="venus absolute" />
+      </div>
+      <div class="right">
+        <div class="text">Symulacja oddziaływania grawitacyjnego</div>
+        <a href="play.html" class="playButton">ZAGRAJ!</a>
+      </div>
     </main>
 
     <script>
-        function showMenu() {
-            var header = document.getElementById("header")
-            var menu = document.getElementsByClassName("mobile")[0]
-            if(menu.style.display === "block") {
-                menu.style.display = "none"
-                header.style.boxShadow = ""
-            } else {
-                menu.style.display = "block"
-                header.style.boxShadow = "none"
-            }
+      function showMenu() {
+        var header = document.getElementById("header");
+        var menu = document.getElementsByClassName("mobile")[0];
+        if (menu.style.display === "block") {
+          menu.style.display = "none";
+          header.style.boxShadow = "";
+        } else {
+          menu.style.display = "block";
+          header.style.boxShadow = "none";
         }
+      }
 
-        window.onresize = () => {
-            if(document.body.clientWidth >= 600 ) {
-                var menu = document.getElementsByClassName("mobile")[0]
-                menu.style.display = "none"
-            }
+      window.onresize = () => {
+        if (document.body.clientWidth >= 600) {
+          var menu = document.getElementsByClassName("mobile")[0];
+          menu.style.display = "none";
         }
+      };
 
-        var rocketRect = rocket.getBoundingClientRect()
-        var venusRect = venus.getBoundingClientRect()
-        var rocketPos = {
-            x: (rocketRect.right - rocketRect.left)/2 + (rocketRect.left),
-            y: (rocketRect.bottom - rocketRect.top)/2 + (rocketRect.top),
-        }
-        var venusPos = {
-            x: (venusRect.right - venusRect.left)/2 + (venusRect.left),
-            y: (venusRect.bottom - venusRect.top)/2 + (venusRect.top),
-        }
-        main.addEventListener("mousemove", (event) => {
-            rocket.style.transform  = `translate3d(${(rocketPos.x - event.pageX)/25}px, ${(rocketPos.y - event.pageY)/25}px, 0) translate(-50%, -50%)`
-            venus.style.transform  = `translate3d(${-(venusPos.x - event.pageX)/50}px, ${-(venusPos.y - event.pageY)/50}px, 0) translate(-50%, -50%)`
-        })
+      var rocketRect = rocket.getBoundingClientRect();
+      var venusRect = venus.getBoundingClientRect();
+      var rocketPos = {
+        x: (rocketRect.right - rocketRect.left) / 2 + rocketRect.left,
+        y: (rocketRect.bottom - rocketRect.top) / 2 + rocketRect.top,
+      };
+      var venusPos = {
+        x: (venusRect.right - venusRect.left) / 2 + venusRect.left,
+        y: (venusRect.bottom - venusRect.top) / 2 + venusRect.top,
+      };
+      main.addEventListener("mousemove", (event) => {
+        rocket.style.transform = `translate3d(${(rocketPos.x - event.pageX) / 25}px, ${
+          (rocketPos.y - event.pageY) / 25
+        }px, 0) translate(-50%, -50%)`;
+        venus.style.transform = `translate3d(${-(venusPos.x - event.pageX) / 50}px, ${
+          -(venusPos.y - event.pageY) / 50
+        }px, 0) translate(-50%, -50%)`;
+      });
     </script>
     <script src="scripts/index.js"></script>
-</body>
+  </body>
 </html>

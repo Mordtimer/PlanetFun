@@ -37,7 +37,7 @@
       <nav class="desktop">
         <ul>
           <li><a href="play.html">ZAGRAJ</a></li>
-          <li><a href="">INSTRUKCJA</a></li>
+          <li><a href="Documentation_Planet_Fun.pdf">INSTRUKCJA</a></li>
         </ul>
       </nav>
 
@@ -51,33 +51,35 @@
     <nav class="mobile">
       <ul>
         <li><a href="play.html">ZAGRAJ</a></li>
-        <li><a href="">INSTRUKCJA</a></li>
+        <li><a href="Documentation_Planet_Fun.pdf">INSTRUKCJA</a></li>
       </ul>
     </nav>
 
     <main>
-        <canvas id="canvas"></canvas>
-        <div id="menu">
-            <table>
-                <tr>
-                    <td rowspan="2">Radius</td>
-                    <td><button id = "rInc">+</button></td>
-                    <td rowspan="2">Mass</td><td><button id = "mInc">+</button></td>
-                    <td rowspan="2">
-                        <input type="color" id="colorInput">
-                    </td>
-                    <td rowspan="2">
-                        <button id = "deletePlanet">
-                            <img src="images/delete.svg">
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td><button id = "rDec">-</button></td><td><button id = "mDec">-</button></td>
-                </tr>
-            </table>
-        </div>
-      
+      <canvas id="canvas"></canvas>
+      <div id="menu">
+        <table>
+          <tr>
+            <td rowspan="2">Radius</td>
+            <td><button id="rInc">+</button></td>
+            <td rowspan="2">Mass</td>
+            <td><button id="mInc">+</button></td>
+            <td rowspan="2">
+              <input type="color" id="colorInput" />
+            </td>
+            <td rowspan="2">
+              <button id="deletePlanet">
+                <img src="images/delete.svg" />
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td><button id="rDec">-</button></td>
+            <td><button id="mDec">-</button></td>
+          </tr>
+        </table>
+      </div>
+
       <div class="dropdown">
         <img id="dropimg" src="images/arrow.svg" />
         <div id="dropdown-content-id" class="dropdown-content">
@@ -93,24 +95,26 @@
       <div class="planet-params">
         <div id="planetParamsContent" class="planet-params-content">
           <label class="planet-params-label">Masa</label>
-          <input type="range" id="planetMass" min="1" max="1000">
+          <input type="range" id="planetMass" min="1" max="1000" />
           <label class="planet-params-label">Promień</label>
-          <input type="range" id="planetRadius" min="10" max="100">
+          <input type="range" id="planetRadius" min="10" max="100" />
           <label class="planet-params-label">Kolor</label>
-          <input type="color" id="planetColor" value="#ffffff">
+          <input type="color" id="planetColor" value="#ffffff" />
         </div>
         <div class="planet-params-header">
-            <div id="planetParamsClose" class="planet-params-close">
-              <img src="images/arrow-up.png" id="planetParamsCloseButton" class="planet-params-close-button">
-            </div>
-            <div class="planet-params-header-text">
-              Parametry planety
-            </div>
+          <div id="planetParamsClose" class="planet-params-close">
+            <img
+              src="images/arrow-up.png"
+              id="planetParamsCloseButton"
+              class="planet-params-close-button"
+            />
+          </div>
+          <div class="planet-params-header-text">Parametry planety</div>
         </div>
       </div>
 
       <div id="addPlanet" class="add-planet">
-        <img src="images/plus.svg" class="add-planet-button">
+        <img src="images/plus.svg" class="add-planet-button" />
       </div>
     </main>
 
