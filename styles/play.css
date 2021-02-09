@@ -51,6 +51,10 @@ nav ul {
   padding: 0 20px 0 0;
 }
 
+#menu {
+  z-index: 2;
+}
+
 nav li a {
   display: block;
   padding: 25px 30px;
@@ -103,20 +107,20 @@ header img {
     box-shadow: 0px 30px 20px 0px #000000;
   }
 
-  #menu{
+  #menu {
     position: absolute;
     left: 0px;
     bottom: 0px;
     width: calc(100% - 6px);
     height: 11vh;
-}
+  }
 
-  #menu table{
+  #menu table {
     width: 100%;
     height: 50%;
   }
 
-  #menu table td{
+  #menu table td {
     height: 50%;
     width: 16.6%;
     font-size: 110%;
@@ -124,22 +128,22 @@ header img {
     padding: 5px;
   }
 
-  td button{
+  td button {
     width: 100%;
     height: 100%;
     border-radius: 40%;
   }
 
-  #menu input{
+  #menu input {
     height: 80%;
   }
-  
-  #deletePlanet{
+
+  #deletePlanet {
     width: 100%;
     height: 60%;
   }
-  
-  #deletePlanet img{
+
+  #deletePlanet img {
     height: 100%;
     width: 100%;
   }
@@ -157,47 +161,46 @@ header img {
     display: none;
   }
 
-  #menu{
+  #menu {
     position: absolute;
     left: 30%;
     bottom: 0px;
     width: 40%;
     height: 10vh;
-}
-
-  #menu table{
-      width: 100%;
-      height: 50%;
   }
 
-  #menu table td{
-      height: 50%;
-      width: 10%;
-      font-size: 220%;
-      text-align: center;
-  }
-
-  td button{
-      width: 70%;
-      height: 70%;
-      border-radius: 40%;
-  }
-
-  #menu input{
+  #menu table {
+    width: 100%;
     height: 50%;
   }
-  
-  #deletePlanet{
+
+  #menu table td {
+    height: 50%;
+    width: 10%;
+    font-size: 220%;
+    text-align: center;
+  }
+
+  td button {
+    width: 70%;
+    height: 70%;
+    border-radius: 40%;
+  }
+
+  #menu input {
+    height: 50%;
+  }
+
+  #deletePlanet {
     width: 50%;
     height: 50%;
   }
-  
-  #deletePlanet img{
+
+  #deletePlanet img {
     height: 100%;
     width: 100%;
   }
 }
-
 
 .dropdown {
   position: absolute;
@@ -341,114 +344,114 @@ header img {
   width: 100%;
 }
 
-@media only screen and (max-height: 500px){
-  #menu table td{
-      font-size: 110%;
+@media only screen and (max-height: 500px) {
+  #menu table td {
+    font-size: 110%;
   }
 
-  #menu{
-      left: 22%;
-      bottom: 0px;
-      width: 56%;
-      height: 15vh;
+  #menu {
+    left: 22%;
+    bottom: 0px;
+    width: 56%;
+    height: 15vh;
   }
 
-  td button{
-      width: 100%;
-      height: 100%;
-      border-radius: 40%;
+  td button {
+    width: 100%;
+    height: 100%;
+    border-radius: 40%;
   }
 
-  #menu input{
+  #menu input {
     height: 60%;
   }
-  
-  #deletePlanet{
+
+  #deletePlanet {
     width: 70%;
     height: 70%;
   }
-  
-  #deletePlanet img{
+
+  #deletePlanet img {
     height: 100%;
     width: 100%;
   }
 }
 
-@media only screen and (min-width: 600px) and (min-aspect-ratio: 3/5) and (max-aspect-ratio:1/1){
-  #menu table td{
-      font-size: 190%;
+@media only screen and (min-width: 600px) and (min-aspect-ratio: 3/5) and (max-aspect-ratio: 1/1) {
+  #menu table td {
+    font-size: 190%;
   }
 
-  #menu{
-      left: 22%;
-      bottom: 0px;
-      width: 56%;
-      height: 9vh;
+  #menu {
+    left: 22%;
+    bottom: 0px;
+    width: 56%;
+    height: 9vh;
   }
 
-  td button{
-      width: 100%;
-      height: 100%;
-      border-radius: 40%;
+  td button {
+    width: 100%;
+    height: 100%;
+    border-radius: 40%;
   }
 
-  #menu input{
+  #menu input {
     height: 60%;
   }
-  
-  #deletePlanet{
+
+  #deletePlanet {
     width: 80%;
     height: 70%;
   }
-  
-  #deletePlanet img{
+
+  #deletePlanet img {
     height: 100%;
     width: 100%;
   }
 }
 
-@media only screen and (min-width: 600px) and (min-aspect-ratio: 1/1) and (max-aspect-ratio:5/3){
-  #menu table td{
-      font-size: 150%;
+@media only screen and (min-width: 600px) and (min-aspect-ratio: 1/1) and (max-aspect-ratio: 5/3) {
+  #menu table td {
+    font-size: 150%;
   }
 
-  #menu{
-      left: 22%;
-      bottom: 0px;
-      width: 56%;
-      height: 9vh;
+  #menu {
+    left: 22%;
+    bottom: 0px;
+    width: 56%;
+    height: 9vh;
   }
 
-  td button{
-      width: 100%;
-      height: 100%;
-      border-radius: 40%;
+  td button {
+    width: 100%;
+    height: 100%;
+    border-radius: 40%;
   }
 
-  #menu input{
+  #menu input {
     height: 60%;
   }
-  
-  #deletePlanet{
+
+  #deletePlanet {
     width: 70%;
     height: 70%;
   }
-  
-  #deletePlanet img{
+
+  #deletePlanet img {
     height: 100%;
     width: 100%;
   }
 }
 
-#menu{
-  display:none;
+#menu {
+  display: none;
   background-color: #020f1a;
   color: #c8dbe9;
   border-radius: 25px;
   border: black 3px solid;
 }
 
-#menu input{
+#menu input {
   height: 40%;
 }
 
@@ -456,7 +459,6 @@ header img {
   position: absolute;
   bottom: 0;
   right: 0;
-
 }
 
 .planet-params-header {
@@ -468,7 +470,7 @@ header img {
   background-color: #444444;
 }
 
-.planet-params-close{
+.planet-params-close {
   width: 20px;
   height: 20px;
 
@@ -476,7 +478,6 @@ header img {
 }
 
 .planet-params-header-text {
-
 }
 
 .planet-params-close-button {
@@ -497,7 +498,8 @@ header img {
   display: block;
 }
 
-label, input {
+label,
+input {
   margin: 10px 0;
   display: block;
 }
